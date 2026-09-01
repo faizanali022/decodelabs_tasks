@@ -1,81 +1,122 @@
+# Al Noor Maid Services — Backend Application (Task 2)
 
----
+## Overview
+This project is the **Task 2 backend submission** for the DecodeLabs Full Stack Development Internship.
 
+It is a Node.js + Express application built with MVC architecture, MySQL/Sequelize integration, session-based admin authentication, and route-based content/service management.
 
-```markdown
-# 🧠 Al Noor Maid Services – Backend API
+## Tech Stack
 
-[![GitHub stars](https://img.shields.io/github/stars/faizanali022/decodelabs_tasks)](https://github.com/faizanali022/decodelabs_tasks/stargazers)
-
-## 📌 Overview
-**Al Noor Maid Services** is a complete home staff agency platform.  
-This is the **backend API** built as Task 2 for DecodeLabs Full Stack Internship.  
-It provides RESTful endpoints for managing services, blog posts, cities, and contact inquiries.
-
-## 🛠️ Tech Stack
 | Layer | Technology |
-|-------|------------|
-| **Runtime** | Node.js (v18+) |
-| **Framework** | Express.js |
-| **Database** | MySQL + Sequelize ORM |
-| **Auth** | Passport.js (local) |
-| **Templating** | EJS |
-| **File Upload** | Multer |
-| **Validation** | Custom + Sequelize validations |
-| **Environment** | dotenv |
+| --- | --- |
+| Runtime | Node.js |
+| Framework | Express.js |
+| Database | MySQL |
+| ORM | Sequelize |
+| Authentication | Passport.js (Local Strategy) |
+| View Engine | EJS |
+| Uploads | Multer |
+| Session Management | express-session |
 
-## ✨ Features
-- ✅ Complete MVC Architecture
-- ✅ RESTful Routes (GET, POST, PUT, DELETE)
-- ✅ Admin Panel (Login, Dashboard, Blog CRUD)
-- ✅ Service & City Management
-- ✅ Contact Form with Validation
-- ✅ Blog with Categories & SEO
-- ✅ Image Upload (Multer)
-- ✅ Server-side Validation (Never Trust the Client)
-- ✅ Session-based Authentication
-- ✅ Error Handling (404, 500)
+## Core Features
+- MVC-based backend structure
+- Public routes for pages, services, cities, and contact form
+- Blog listing and post detail routes
+- Admin authentication and dashboard access
+- Admin blog management (create, edit, delete)
+- Service management route for admin area
+- Structured 404 and 500 error pages
 
-## 🔗 API Endpoints (Public)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Home page |
-| GET | `/services` | List all services |
-| GET | `/services/:slug` | Single service detail |
-| GET | `/blog` | Blog listing |
-| GET | `/blog/:slug` | Single blog post |
-| GET | `/cities/:slug` | City-specific page |
-| POST | `/contact` | Submit contact form |
+## Project Structure
 
-## 🔐 Admin Routes (Protected)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/admin/login` | Login page |
-| POST | `/admin/login` | Login authentication |
-| GET | `/admin/dashboard` | Admin dashboard |
-| GET | `/admin/blog` | List blog posts |
-| GET | `/admin/blog/create` | Create new post |
-| POST | `/admin/blog/create` | Store new post |
-| GET | `/admin/blog/edit/:id` | Edit post |
-| POST | `/admin/blog/edit/:id` | Update post |
-| GET | `/admin/blog/delete/:id` | Delete post |
-| GET | `/admin/logout` | Logout |
+```text
+task-2-backend/
+├── config/
+├── controllers/
+├── middleware/
+├── migrations/
+├── models/
+├── routes/
+├── seeders/
+├── public/
+├── views/
+├── server.js
+└── package.json
+```
 
-## 🚀 How to Run Locally
+## Setup Instructions
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- MySQL server
+
+### Installation
+
 ```bash
-# 1. Clone and enter backend folder
 cd task-2-backend
-
-# 2. Install dependencies
 npm install
+```
 
-# 3. Create .env file (see .env.example)
-# 4. Create MySQL database
-# 5. Run migrations & seeders
+### Environment Variables
+Create a `.env` file in `task-2-backend/` with the following values:
+
+```env
+PORT=3000
+DB_HOST=localhost
+DB_NAME=your_database_name
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+SESSION_SECRET=your_session_secret
+SITE_URL=http://localhost:3000
+WHATSAPP_ADMIN_NUMBER=923XXXXXXXXX
+```
+
+### Database (optional local bootstrap)
+
+```bash
 npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
+```
 
-# 6. Start server
-npm run dev   # (development with nodemon)
-# or
-npm start     # (production)
+### Run the Server
+
+```bash
+npm start
+```
+
+## Route Summary
+
+### Public Routes
+| Method | Route | Purpose |
+| --- | --- | --- |
+| GET | `/` | Home page |
+| GET | `/about` | About page |
+| GET | `/contact` | Contact page |
+| POST | `/contact` | Submit contact request |
+| GET | `/privacy-policy` | Privacy policy page |
+| GET | `/services` | List services |
+| GET | `/services/:slug` | Service detail |
+| GET | `/cities` | List cities |
+| GET | `/cities/:slug` | City detail page |
+| GET | `/blog` | Blog listing |
+| GET | `/blog/category/:slug` | Blog category listing |
+| GET | `/blog/:slug` | Blog detail |
+
+### Admin Routes
+All admin routes are mounted under `/admin`.
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| GET | `/admin/login` | Login form |
+| POST | `/admin/login` | Authenticate admin |
+| GET | `/admin/logout` | Logout admin |
+| GET | `/admin/dashboard` | Dashboard |
+| GET | `/admin/blog` | Blog management list |
+| GET | `/admin/blog/create` | Create blog form |
+| POST | `/admin/blog` | Create blog post |
+| GET | `/admin/blog/edit/:id` | Edit blog form |
+| PUT | `/admin/blog/edit/:id` | Update blog post |
+| DELETE | `/admin/blog/delete/:id` | Delete blog post |
+| GET | `/admin/services` | Service management |
+
+> Note: HTML form updates/deletes use method override (`?_method=PUT` / `?_method=DELETE`).
