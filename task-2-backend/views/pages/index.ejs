@@ -1,0 +1,523 @@
+<!-- Home page -->
+<%- include('../partials/head') %>
+<body>
+<%- include('../partials/topbar') %>
+
+<main class="page-main">
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Professional Home Staff Services You Can Trust in Islamabad & Rawalpindi</h1>
+            <p>We provide verified and trained maids, babysitters, cooks, drivers, security guards, patient care staff, and home helpers for all your household needs across Islamabad and Rawalpindi.</p>
+            <div class="hero-buttons">
+                <a href="tel:03177799786" class="btn btn-primary">Call Now</a>
+                <a href="https://wa.me/923177799786" class="btn btn-whatsapp">WhatsApp Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Extreme Level Certifications Section -->
+<section class="extreme-cert-section">
+    <div class="cert-curved-container">
+        <div class="cert-header">
+            <h2>Our Certifications & Recognitions</h2>
+            <div class="cert-gold-line"></div>
+            <p class="cert-subtitle">Trusted by industry leaders – excellence is our standard.</p>
+        </div>
+
+        <div class="cert-extreme-grid">
+            <div class="cert-extreme-card">
+                <div class="cert-extreme-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>ISO 9001:2023</h3>
+                <p>Quality Management System Certified</p>
+                <div class="cert-glow"></div>
+            </div>
+            <div class="cert-extreme-card">
+                <div class="cert-extreme-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>Safe Home Certified</h3>
+                <p>Background & safety verified staff</p>
+                <div class="cert-glow"></div>
+            </div>
+            <div class="cert-extreme-card">
+                <div class="cert-extreme-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Training Excellence Award</h3>
+                <p>Continuous skill development program</p>
+                <div class="cert-glow"></div>
+            </div>
+            <div class="cert-extreme-card">
+                <div class="cert-extreme-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Best Home Staff Agency 2024</h3>
+                <p>Recognized by Pakistan Domestic Workers Federation</p>
+                <div class="cert-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Services Section (3 featured cards) -->
+<section class="services-scroll">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p class="section-intro">Reliable home staff services tailored for your daily household needs.</p>
+        </div>
+        
+        <!-- Scrollable Cards Container -->
+        <div class="scroll-container">
+            <div class="scroll-cards">
+                <% 
+                    const allServices = [
+                        { title: 'Maid Service', slug: 'maid', image: '/images/services/6.png', desc: 'Professional maids for cleaning, washing, and daily household chores. Available as part time, full time, or live in.' },
+                        { title: 'Babysitter Service', slug: 'babysitter', image: '/images/maid.jpeg', desc: 'Trained babysitters ensuring complete care, safety, and attention for children. Specialized in newborn and infant care.' },
+                        { title: 'Cook ', slug: 'cook', image: '/images/services/2.png', desc: 'Experienced cooks preparing hygienic, delicious meals according to your taste. Pakistani, vegetarian, continental.' },
+                        { title: 'Professional Chef', slug: 'chef', image: '/images/s/a.jpeg', desc: 'Expert chefs for fine dining, catering, and special occasions. International cuisine & premium quality.' },
+                        { title: 'Driver Service', slug: 'driver', image: '/images/services/4.png', desc: 'Professional, punctual, and verified drivers for safe and comfortable travel. Monthly hiring available.' },
+                        { title: 'Security Guard Service', slug: 'security', image: '/images/services/5.png', desc: 'Trained guards ensuring safety and protection for your home or property. Armed/unarmed options.' },
+                        { title: 'Patient Care Service', slug: 'patient-care', image: '/images/services/3.png', desc: 'Experienced caregivers providing support and care for patients and elderly. Home nurse or live-in caregiver.' },
+                        { title: 'Nurse Service', slug: 'nurse', image: '/images/s/g.jpeg', desc: 'Qualified nurses for healthcare, post-surgery recovery, and medical assistance. Licensed professionals.' },
+                        { title: 'Nanny Service', slug: 'nanny', image: '/images/s/b.jpeg', desc: 'Professional nannies for full-time childcare, education support, and nurturing care. CPR certified.' },
+                        { title: 'Filipino Maid', slug: 'filipino', image: '/images/s/i.jpeg', desc: 'International standard domestic workers with professional cleaning expertise. Legal & verified.' },
+                        { title: 'Office Boy Service', slug: 'office-boy', image: '/images/s/1.jpg', desc: 'Professional office assistants for reception, administration, and facility management.' },
+                        { title: 'Helper Service', slug: 'helper', image: '/images/healper.jpeg', desc: 'General helpers assisting in household tasks, maintenance, and daily routine work efficiently.' }
+                    ];
+                %>
+                <% allServices.forEach(service => { %>
+                    <div class="service-card">
+                        <img src="<%= service.image %>" alt="<%= service.title %>" class="service-image">
+                        <h3><%= service.title %></h3>
+                        <p><%= service.desc %></p>
+                        <a href="/services/<%= service.slug %>" class="learn-more">Learn More →</a>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        
+        <!-- Optional Scroll Buttons -->
+        <div class="scroll-buttons">
+            <button class="scroll-btn scroll-left" aria-label="Scroll left">❮</button>
+            <button class="scroll-btn scroll-right" aria-label="Scroll right">❯</button>
+        </div>
+        
+        <div class="text-center">
+            <a href="/services" class="btn btn-outline">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Horizontal scroll with buttons
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.scroll-cards');
+        const leftBtn = document.querySelector('.scroll-left');
+        const rightBtn = document.querySelector('.scroll-right');
+        
+        if (container && leftBtn && rightBtn) {
+            leftBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -280, behavior: 'smooth' });
+            });
+            rightBtn.addEventListener('click', () => {
+                container.scrollBy({ left: 280, behavior: 'smooth' });
+            });
+        }
+    });
+</script>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <h2>How It Works – Hire in 3 Easy Steps</h2>
+            <div class="title-border"></div>
+        </div>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Contact Us on WhatsApp</h3>
+                <p>Reach out to us via WhatsApp with your service requirement. We respond within 15 minutes.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>Share Your Requirements</h3>
+                <p>Tell us your location, preferred timing, and the type of staff you need. We'll find the perfect match.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Interview & Hire</h3>
+                <p>We arrange the interview. You select the best fit and hire instantly. Replacement guaranteed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us -->
+
+<section class="about-home">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <div class="title-border"></div>
+                <p class="about-intro">We are a professional home staff service provider dedicated to connecting families with reliable, verified, and skilled workers. Our focus is on quality, safety, and customer satisfaction across Islamabad and Rawalpindi.</p>
+                
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Families</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Staff Placed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Cities</span>
+                    </div>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature"><i class="fas fa-check-circle"></i> 100% Verified Staff</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> Background Checked</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> Quick Replacement</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> 24/7 Support</div>
+                </div>
+
+                <a href="/about" class="btn-about">Learn More About Us →</a>
+            </div>
+            <div class="about-image">
+                <img src="/images/logo_.jpg" alt="Professional home staff team" loading="lazy">
+                <div class="image-overlay"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<!-- Trust & Why Choose Us - Combined Professional Section -->
+<section class="trust-section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="section-badge">
+                <i class="fas fa-award"></i> Trusted Across Pakistan
+            </span>
+            <h2>Why Families Trust Al-Noor</h2>
+            <p class="section-subtitle">Join 1000+ satisfied families who rely on our verified home staff services</p>
+        </div>
+
+        <!-- Trust Features Grid -->
+        <div class="trust-grid">
+            <!-- Verified Staff -->
+            <div class="trust-card">
+                <div class="trust-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Verified Staff</h3>
+                <p>Every staff member undergoes strict background checks including CNIC verification, police clearance, and reference checks before joining our network.</p>
+                <ul class="trust-list">
+                    <li><i class="fas fa-check"></i> CNIC Verification</li>
+                    <li><i class="fas fa-check"></i> Police Clearance</li>
+                    <li><i class="fas fa-check"></i> Reference Checks</li>
+                </ul>
+            </div>
+
+            <!-- Background Checked -->
+
+
+            <!-- Experienced Workers -->
+            <div class="trust-card">
+                <div class="trust-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Trained Professionals</h3>
+                <p>Our staff receives professional training in their respective fields, ensuring high-quality service for your household needs.</p>
+                <ul class="trust-list">
+                    <li><i class="fas fa-check"></i> Skill Assessment</li>
+                    <li><i class="fas fa-check"></i> Professional Training</li>
+                    <li><i class="fas fa-check"></i> Regular Workshops</li>
+                </ul>
+            </div>
+
+            <!-- Quick Response -->
+            <div class="trust-card">
+                <div class="trust-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Same Day Service</h3>
+                <p>Need staff urgently? We provide same-day availability in Islamabad and Rawalpindi.</p>
+                <ul class="trust-list">
+                    <li><i class="fas fa-check"></i> 15 Min Response Time</li>
+                    <li><i class="fas fa-check"></i> 24/7 Availability</li>
+                    <li><i class="fas fa-check"></i> Emergency Staffing</li>
+                </ul>
+            </div>
+
+            <!-- Trusted by Families -->
+            <div class="trust-card">
+                <div class="trust-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Trusted by 1000+ Families</h3>
+                <p>Our reputation speaks through satisfied clients who recommend us to their friends and family across Pakistan.</p>
+                <ul class="trust-list">
+                    <li><i class="fas fa-check"></i> 5-Star Reviews</li>
+                    <li><i class="fas fa-check"></i> Repeat Customers</li>
+                    <li><i class="fas fa-check"></i> Word-of-Mouth Growth</li>
+                </ul>
+            </div>
+
+            <!-- Quick Hiring -->
+           
+
+          
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="trust-cta">
+            <p>Experience the Al-Noor difference today</p>
+            <div class="cta-buttons">
+                <a href="tel:03177799786" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/923177799786" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cities We Serve -->
+<section class="cities-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Cities We Serve</h2>
+            <p class="section-subtitle">Professional home staff services across Pakistan</p>
+        </div>
+        <div class="cities-grid">
+            <% 
+                const cities = [
+                    { name: 'Islamabad', slug: 'islamabad', image: '/images/cities/islambad.jpeg', coverage: 'F-6 to F-11, G-6 to G-11, E-7 to E-11, D-12, Gulberg Greens' },
+                    { name: 'Rawalpindi', slug: 'rawalpindi', image: '/images/cities/rawalpindi.jpeg', coverage: 'Saddar, Satellite Town, Bahria Town, DHA, Gulraiz, Chaklala Scheme 3' }
+                ];
+            %>
+            <% cities.forEach(city => { %>
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="<%= city.image %>" alt="<%= city.name %>" loading="lazy">
+                    </div>
+                    <div class="city-content">
+                        <h3><%= city.name %></h3>
+                        <div class="city-areas">
+                            <span class="areas-label">Service Areas</span>
+                            <p class="city-coverage"><%= city.coverage %></p>
+                        </div>
+                        <a href="/cities/<%= city.slug %>" class="city-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <div class="testimonials-head">
+            <h2>What Our Clients Say</h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="testimonials-slider" id="testimonialsSlider">
+            <div class="slider-container" id="sliderContainer">
+                <% 
+                    const reviews = [
+                        { name: "Zaheer Ahmad", date: "a month ago", text: "With over 40 years of history, Mary remains at all their choice. They put their heart and soul into making sure the house was sparkling for guests.", rating: 5 },
+                        { name: "Zameer Hussain", date: "a month ago", text: "She provides very good and honest medical services. Every patient she works with is honest and trustworthy. Our patients are always on time.", rating: 5 },
+                        { name: "Aleesh Haider", date: "a month ago", text: "Excellent experience! The maid provided by this company is very hardworking and honest. Highly recommended for anyone looking for reliable domestic help.", rating: 5 },
+                        { name: "Waqar Ali", date: "a month ago", text: "Customer loves the owner operated field and transparency. Easy communication with the office and highly dependable recurring schedule.", rating: 5 },
+                        { name: "Gohar Ali", date: "a month ago", text: "Angie's List – the gold standard for finding highly reviewed local independent businesses. You can see specific local reviews rather than just national averages.", rating: 5 },
+                        { name: "Feroza Feroza", date: "a month ago", text: "Punctuality: Many users highlight that the maids arrive exactly on time, which is a major plus in busy cities.", rating: 5 },
+                        { name: "Safia", date: "2 months ago", text: "Al Noor maid service is a good company. I got a very good job here. I am very happy. Thanks Al Noor!", rating: 5 },
+                        { name: "Mazaan Haider", date: "2 months ago", text: "Great service provided by Al Noor Home Maid Services. I am very impressed and recommend everyone to take services from them.", rating: 5 },
+                        { name: "Manat Noor", date: "6 months ago", text: "I needed a nanny. I contacted Al Noor maid service. I am very impressed. I think Al Noor is one of the best agencies in Pakistan to provide good staff.", rating: 5 },
+                        { name: "Sabaht Chaudhary", date: "a month ago", text: "Have all the cleaners undergone a recent background check? We provide cleaning services – do I need to provide them?", rating: 4 },
+                        { name: "Prince Khan", date: "3 months ago", text: "I am so impressed by how they handled the deep cleaning of my kitchen. Every grease stain is gone and the tiles are literally glowing.", rating: 5 },
+                        { name: "Zain Ali Malik", date: "3 months ago", text: "Maid service is the only team I trust to handle my home cleaning. They are consistently polite, thorough and very efficient.", rating: 5 },
+                        { name: "Abdul Jabbar", date: "3 months ago", text: "The deep cleaning service is worth every penny. My kitchen cabinets and exhaust fan look like they were just installed.", rating: 5 },
+                        { name: "Muhammad Ishtaq", date: "2 months ago", text: "The staff is so well mannered and follows all my specific instructions perfectly. It's a very personalized and respectful service.", rating: 5 },
+                        { name: "Ikram Bukhari", date: "a month ago", text: "Insurance is key – ensure the service is bonded and insured so you aren't liable for accidental breakages or injuries.", rating: 4 },
+                        { name: "Maiik Asad Khokhar", date: "5 months ago", text: "Al Noor maid service company – I am very happy. I am certified. I am really proud of you. Thanks full agency.", rating: 5 },
+                        { name: "Jahangir", date: "a month ago", text: "Exceptional service at a very fair price. Al Noor home maid services never disappoints.", rating: 5 },
+                        { name: "Imran Khan", date: "3 months ago", text: "Very polite and sincere staff provided by Al Noor maid service. I am very satisfied.", rating: 5 },
+                        { name: "Umar Faruq", date: "a month ago", text: "Fast, efficient and incredibly effective. Al Noor maid service really knows what they're doing.", rating: 5 },
+                        { name: "Saqib Sha", date: "a month ago", text: "After a major kitchen renovation I was overwhelmed. The team did an absolutely phenomenal job on the entire house.", rating: 5 },
+                        { name: "M Jameel", date: "7 months ago", text: "They provide great services. They complete the commitment they asked. I am satisfied and advise everyone to take services from Al Noor.", rating: 5 },
+                        { name: "Muhammad Khalid Islami", date: "2 months ago", text: "I really appreciate maid services because they are best, fast and professional.", rating: 5 },
+                        { name: "Sadia Batool", date: "7 months ago", text: "Al Noor maids company was professional, thorough, and efficient – our home has never looked better.", rating: 5 },
+                        { name: "Sheikh Saab", date: "a month ago", text: "Al Noor maid service is my go‑to for a clean, fresh and happy home.", rating: 5 },
+                        { name: "Malik Raza", date: "3 months ago", text: "I am very happy. Al Noor is a great company with reliable staff and friendly service. Good job!", rating: 5 },
+                        { name: "Usama Rajpoot", date: "6 months ago", text: "I needed a worker for home care. I contacted Al Noor. I am very satisfied. I recommend everyone to contact Al Noor for good service.", rating: 5 },
+                        { name: "Nadeem Abaas", date: "5 months ago", text: "I am really proud of you. Satisfied maid service. Al Noor – very very happy. Good service.", rating: 5 },
+                        { name: "Rana Amir Farooq", date: "6 months ago", text: "I needed a job in Islamabad. I contacted many companies but was not satisfied. At the end I contacted Al Noor and within 1 hour I was on job. Very happy.", rating: 5 },
+                        { name: "Malik Rafeq", date: "6 months ago", text: "Best home maid service agency. Al Noor is the best company – reliable and professional domestic staff in Islamabad and Rawalpindi.", rating: 5 },
+                        { name: "Muhammad Ahsan Majoka", date: "2 months ago", text: "Really amazing and fast services. I strongly recommend this one and ask people to avail services from them.", rating: 5 },
+                        { name: "Abdul Basit", date: "3 months ago", text: "Great services provided by company. I recommend all of you to take services from them.", rating: 5 },
+                        { name: "Ashfaq Ahmad", date: "6 months ago", text: "Al Noor maid service is a very grateful agency in Pakistan. I am very excited for this service.", rating: 5 }
+                    ];
+                %>
+                <% reviews.forEach((review, idx) => { %>
+                    <div class="testimonial-card" data-index="<%= idx %>">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4><%= review.name %></h4>
+                                <span class="date"><%= review.date %></span>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            “<%= review.text %>”
+                        </div>
+                        <div class="stars">
+                            <% for(let i = 0; i < 5; i++) { %>
+                                <i class="fas fa-star<%= i < review.rating ? '' : '-o' %>"></i>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <button class="slider-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function() {
+        const container = document.getElementById('sliderContainer');
+        const dotsContainer = document.getElementById('sliderDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        if (!container || !dotsContainer) return;
+
+        const cards = Array.from(container.children);
+        const total = cards.length;
+        let currentIndex = 0;
+        let autoTimer;
+        let cardsPerView = 1; // Default to mobile
+
+        function getCardsPerView() {
+            const width = window.innerWidth;
+            if (width >= 1024) return 3; // Desktop: 3 cards
+            if (width >= 768) return 2;  // Tablet: 2 cards
+            return 1; // Mobile: 1 card
+        }
+
+        function updateSlider() {
+            cardsPerView = getCardsPerView();
+            const cardElement = cards[0];
+            if (!cardElement) return;
+            
+            const cardWidth = cardElement.offsetWidth;
+            const gap = 24; // Same as CSS gap
+            const moveDistance = currentIndex * (cardWidth + gap);
+            
+            container.style.transform = `translateX(-${moveDistance}px)`;
+            
+            // Update dots
+            Array.from(dotsContainer.children).forEach((dot, i) => {
+                if (i === currentIndex) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+            resetAutoPlay();
+        }
+
+        function goTo(index) {
+            const maxIndex = Math.max(0, total - cardsPerView);
+            if (index < 0) index = 0;
+            if (index > maxIndex) index = maxIndex;
+            currentIndex = index;
+            updateSlider();
+        }
+
+        function next() { 
+            goTo(currentIndex + 1); 
+        }
+        function prev() { 
+            goTo(currentIndex - 1); 
+        }
+
+        function resetAutoPlay() {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = setInterval(() => {
+                const maxIndex = Math.max(0, total - cardsPerView);
+                if (currentIndex < maxIndex) {
+                    next();
+                } else {
+                    goTo(0);
+                }
+            }, 6000);
+        }
+
+        // Create dots
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        prevBtn.addEventListener('click', prev);
+        nextBtn.addEventListener('click', next);
+        window.addEventListener('resize', () => updateSlider());
+        setTimeout(() => updateSlider(), 100);
+        resetAutoPlay();
+    })();
+</script>
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Hire Trusted Home Staff?</h2>
+        <p>Get reliable, verified, and trained staff for your home today. One call and we'll handle the rest.</p>
+        <div class="cta-buttons">
+            <a href="tel:03177799786" class="btn-call">Call Now</a>
+            <a href="https://wa.me/923177799786" class="btn-whatsapp">WhatsApp Now</a>
+        </div>
+    </div>
+</section>
+</main>
+
+<%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

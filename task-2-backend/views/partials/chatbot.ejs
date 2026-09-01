@@ -1,0 +1,76 @@
+<!-- Chatbot Widget - Al Noor Maid Services -->
+<div class="chatbot-widget" id="chatbot-widget">
+    
+    <!-- Chat Window -->
+    <div class="chat-window hidden" id="chat-window">
+        
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="avatar">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="header-text">
+                    <h3>Al-Noor Assistant</h3>
+                    <span class="status">
+                        <i class="fas fa-circle"></i> Online Now
+                    </span>
+                </div>
+            </div>
+            <button class="close-btn" id="chatbot-minimize" title="Minimize Chat">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- Welcome Message -->
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-bubble">
+                    <div class="message-text">
+                        <p>Assalam-o-Alaikum! 👋</p>
+                        <p>Welcome to <strong>Al-Noor Maid Services</strong>. How may I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions" id="quick-actions">
+            <button class="quick-btn" data-reply="Maid Service">
+                <i class="fas fa-broom"></i> Maid
+            </button>
+            <button class="quick-btn" data-reply="Babysitter">
+                <i class="fas fa-baby"></i> Babysitter
+            </button>
+            <button class="quick-btn" data-reply="Pricing">
+                <i class="fas fa-tag"></i> Prices
+            </button>
+            <button class="quick-btn" data-reply="Contact">
+                <i class="fas fa-phone"></i> Contact
+            </button>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+            <input 
+                type="text" 
+                id="chat-input" 
+                placeholder="Type your message..." 
+                autocomplete="off"
+            >
+            <button class="send-btn" id="chatbot-send" title="Send Message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button class="chat-toggle" id="chatbot-toggle" title="Chat with Us">
+        <i class="fas fa-robot"></i>
+        <span class="notification-badge" id="notification-badge">1</span>
+    </button>
+</div>

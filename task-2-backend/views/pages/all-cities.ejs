@@ -1,0 +1,55 @@
+<%- include('../partials/head') %>
+<%- include('../partials/topbar') %>
+
+<main class="page-main">
+    <section class="cities-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Cities We Serve</h2>
+            <p class="section-subtitle">Professional home staff services across Pakistan</p>
+        </div>
+        <div class="cities-grid">
+            <% 
+                const cities = [
+                    { name: 'Islamabad', slug: 'islamabad', image: '/images/cities/islambad.jpeg', coverage: 'F-6 to F-11, G-6 to G-11, E-7 to E-11, D-12, Gulberg Greens' },
+                    { name: 'Rawalpindi', slug: 'rawalpindi', image: '/images/cities/rawalpindi.jpeg', coverage: 'Saddar, Satellite Town, Bahria Town, DHA, Gulraiz, Chaklala Scheme 3' }
+                ];
+            %>
+            <% cities.forEach(city => { %>
+                <div class="city-card">
+                    <div class="city-image">
+                        <img src="<%= city.image %>" alt="<%= city.name %>" loading="lazy">
+                    </div>
+                    <div class="city-content">
+                        <h3><%= city.name %></h3>
+                        <div class="city-areas">
+                            <span class="areas-label">Service Areas</span>
+                            <p class="city-coverage"><%= city.coverage %></p>
+                        </div>
+                        <a href="/cities/<%= city.slug %>" class="city-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Hire Trusted Home Staff?</h2>
+        <p>Get reliable, verified, and trained staff for your home today. One call and we'll handle the rest.</p>
+        <div class="cta-buttons">
+            <a href="tel:03177799786" class="btn-call">Call Now</a>
+            <a href="https://wa.me/923177799786" class="btn-whatsapp">WhatsApp Now</a>
+        </div>
+    </div>
+</section>
+
+   
+</main>
+
+<%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

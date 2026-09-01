@@ -1,0 +1,28 @@
+<div class="admin-form">
+    <h1>Create New Blog Post</h1>
+    <form action="/admin/blog" method="POST" enctype="multipart/form-data">
+        <label>Title</label>
+        <input type="text" name="title" required>
+        
+        <label>Category</label>
+        <select name="categoryId" required>
+            <% categories.forEach(cat => { %>
+                <option value="<%= cat.id %>"><%= cat.name %></option>
+            <% }); %>
+        </select>
+        
+        <label>Excerpt</label>
+        <textarea name="excerpt" rows="3"></textarea>
+        
+        <label>Content (HTML allowed)</label>
+        <textarea name="content" rows="10" required></textarea>
+        
+        <label>Featured Image</label>
+        <input type="file" name="image">
+        
+        <label>SEO Slug (optional)</label>
+        <input type="text" name="slug">
+        
+        <button type="submit" class="btn btn-primary">Publish</button>
+    </form>
+</div>

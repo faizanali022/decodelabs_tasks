@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+<%- include('../partials/topbar') %>
+
+<main class="blog-category-page">
+    <div class="container">
+        <div class="category-header">
+            <h1>Category: <%= category.name %></h1>
+            <div class="gold-line"></div>
+            <p><%= category.description %></p>
+        </div>
+
+        <div class="posts-grid">
+            <% posts.forEach(post => { %>
+                <article class="post-card">
+                    <% if(post.featuredImage) { %>
+                        <div class="post-image">
+                            <img src="<%= post.featuredImage %>" alt="<%= post.title %>" loading="lazy">
+                        </div>
+                    <% } %>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date"><%= post.createdAt.toLocaleDateString() %></span>
+                        </div>
+                        <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+                        <p><%= post.excerpt %></p>
+                        <a href="/blog/<%= post.slug %>" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            <% }); %>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

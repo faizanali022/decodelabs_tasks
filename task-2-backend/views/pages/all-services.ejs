@@ -1,0 +1,175 @@
+<%- include('../partials/head') %>
+<%- include('../partials/topbar') %>
+
+<main class="alnoor-services-page">
+    <!-- Hero Section -->
+    <section class="alnoor-services-hero">
+        <div class="container">
+            <h1>All Services – Professional Home Staff Solutions</h1>
+            <p class="subheading">Explore our complete range of verified and trained home staff services.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="alnoor-services-grid-section">
+        <div class="container">
+            <div class="alnoor-section-header">
+                <h2>Our Services</h2>
+                <div class="alnoor-gold-line"></div>
+                <p class="alnoor-section-intro">Reliable home staff services tailored for your daily household needs.</p>
+            </div>
+
+            <div class="alnoor-services-grid">
+                <% 
+                    const allServices = [
+                        { 
+                            title: 'Maid Service', 
+                            slug: 'maid', 
+                            image: '/images/services/6.png', 
+                            desc: 'Professional maids for cleaning, washing, and daily household chores.',
+                            details: 'Available as part-time, full-time, or live-in. All maids are background-checked and trained in modern cleaning techniques.'
+                        },
+                        { 
+                            title: 'Babysitter Service', 
+                            slug: 'babysitter', 
+                            image: '/images/maid.jpeg', 
+                            desc: 'Trained babysitters ensuring complete care, safety, and attention for children.',
+                            details: 'Specialized in newborn care, infant care, and early childhood development. CPR and first-aid certified.'
+                        },
+                        { 
+                            title: 'Cook Service', 
+                            slug: 'cook', 
+                            image: '/images/services/2.png', 
+                            desc: 'Experienced cooks preparing hygienic, delicious meals according to your taste.',
+                            details: 'Pakistani, vegetarian, continental cuisine. Customized menus, dietary preferences, and special occasion chefs available.'
+                        },
+                        { 
+                            title: 'Professional Chef', 
+                            slug: 'chef', 
+                            image: '/images/s/a.jpeg', 
+                            desc: 'Expert chefs specializing in fine dining, catering, and special occasions.',
+                            details: 'Pakistani, continental, international cuisines. Premium ingredients, restaurant-style plating, and event catering available.'
+                        },
+                        { 
+                            title: 'Driver Service', 
+                            slug: 'driver', 
+                            image: '/images/services/4.png', 
+                            desc: 'Professional, punctual, and verified drivers for safe and comfortable travel.',
+                            details: 'Monthly hiring, flexible timings, licensed and defensive driving trained. Perfect for family or office commute.'
+                        },
+                        { 
+                            title: 'Security Guard Service', 
+                            slug: 'security', 
+                            image: '/images/services/5.png', 
+                            desc: 'Trained guards ensuring safety and protection for your home or property.',
+                            details: 'Armed/unarmed options, 24/7 availability, emergency response, and regular patrol services.'
+                        },
+                        { 
+                            title: 'Patient Care Service', 
+                            slug: 'patient-care', 
+                            image: '/images/services/3.png', 
+                            desc: 'Experienced caregivers providing support and care for patients and elderly.',
+                            details: 'Home nurse, live-in caregiver, medication assistance, mobility support, and companionship.'
+                        },
+                        { 
+                            title: 'Nurse Service', 
+                            slug: 'nurse', 
+                            image: '/images/s/g.jpeg', 
+                            desc: 'Qualified nurses providing healthcare, post-surgery recovery, and medical assistance.',
+                            details: 'Licensed professionals, health monitoring, medication management, chronic disease care, and emergency support 24/7.'
+                        },
+                        { 
+                            title: 'Nanny Service', 
+                            slug: 'nanny', 
+                            image: '/images/s/b.jpeg', 
+                            desc: 'Professional nannies for full-time childcare, education support, and nurturing care.',
+                            details: 'CPR certified, child development trained, education support, daily activity reports, and flexible scheduling options.'
+                        },
+                        { 
+                            title: 'Filipino Maid', 
+                            slug: 'filipino', 
+                            image: '/images/s/i.jpeg', 
+                            desc: 'Professional Filipino domestic workers with international standard housekeeping expertise.',
+                            details: 'Legally documented, verified, English-speaking, reliable, professional demeanor, and trusted by 300+ families.'
+                        },
+                        { 
+                            title: 'Office Boy Service', 
+                            slug: 'office-boy', 
+                            image: '/images/s/1.jpg', 
+                            desc: 'Professional office assistants for reception, administration, and facility management.',
+                            details: 'Office management, client interaction, data entry, filing systems, and business support for corporate efficiency.'
+                        },
+                        { 
+                            title: 'Helper Service', 
+                            slug: 'helper', 
+                            image: '/images/healper.jpeg', 
+                            desc: 'General helpers assisting in household tasks, maintenance, and daily routine work.',
+                            details: 'Cleaning, organizing, laundry, grocery shopping, and basic home maintenance.'
+                        }
+                    ];
+                %>
+                <% allServices.forEach(service => { %>
+                    <div class="alnoor-service-card">
+                        <div class="alnoor-service-image-wrapper">
+                            <img src="<%= service.image %>" alt="<%= service.title %>" class="alnoor-service-image" loading="lazy">
+                        </div>
+                        <div class="alnoor-service-card-content">
+                            <h3><%= service.title %></h3>
+                            <p class="alnoor-service-short-desc"><%= service.desc %></p>
+                            <p class="alnoor-service-details"><%= service.details %></p>
+                            <a href="/services/<%= service.slug %>" class="alnoor-service-btn">Learn More →</a>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+        <!-- Value Proposition Section (Text + Cards) -->
+    <section class="alnoor-value-section">
+        <div class="container">
+            <div class="alnoor-value-header">
+                <h2>Beyond Just Staff – We Deliver Peace of Mind</h2>
+                <div class="alnoor-gold-line"></div>
+                <p class="alnoor-value-subtitle">
+                    Every service we offer is backed by rigorous processes, continuous training, and a commitment to excellence. 
+                    Here’s what makes Al‑Noor the trusted choice for thousands of families.
+                </p>
+            </div>
+
+            <div class="alnoor-value-grid">
+                <% 
+                    const valueProps = [
+                        { icon: 'fas fa-clipboard-list', title: 'Custom Matching', desc: 'We don’t just send any staff – we match based on your specific needs, schedule, and preferences.' },
+                        { icon: 'fas fa-chalkboard-teacher', title: 'Ongoing Training', desc: 'All staff receive regular upskilling in hygiene, safety, and modern home management.' },
+                        { icon: 'fas fa-search', title: 'Strict Vetting', desc: 'Identity verification, police clearance, reference checks – every candidate is fully screened.' },
+                        { icon: 'fas fa-file-signature', title: 'Service Agreement', desc: 'Clear contracts, transparent pricing, and a replacement guarantee for your peace of mind.' }
+                    ];
+                %>
+                <% valueProps.forEach(prop => { %>
+                    <div class="alnoor-value-card">
+                        <div class="alnoor-value-icon">
+                            <i class="<%= prop.icon %>"></i>
+                        </div>
+                        <h3><%= prop.title %></h3>
+                        <p><%= prop.desc %></p>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section">
+    <div class="container">
+        <h2>Ready to Hire Trusted Home Staff?</h2>
+        <p>Get reliable, verified, and trained staff for your home today. One call and we'll handle the rest.</p>
+        <div class="cta-buttons">
+            <a href="tel:03177799786" class="btn-call">Call Now</a>
+            <a href="https://wa.me/923177799786" class="btn-whatsapp">WhatsApp Now</a>
+        </div>
+    </div>
+</section>
+</main>
+
+<%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

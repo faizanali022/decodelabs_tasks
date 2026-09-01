@@ -1,0 +1,54 @@
+<%- include('../partials/head') %>
+<%- include('../partials/topbar') %>
+
+<main class="blog-detail">
+    <div class="container">
+        <article class="post-article">
+            <% if(post.featuredImage) { %>
+                <div class="post-hero-image">
+                    <img src="<%= post.featuredImage %>" alt="<%= post.title %>">
+                </div>
+            <% } %>
+            <div class="post-header">
+                <div class="post-meta">
+                    <span class="post-category"><%= post.categoryName %></span>
+                    <span class="post-date">Published on <%= post.createdAt.toLocaleDateString() %></span>
+                </div>
+                <h1><%= post.title %></h1>
+            </div>
+            <div class="post-body">
+                <%- post.content %>
+            </div>
+            <div class="post-footer">
+                <div class="share-links">
+                    <span>Share this post:</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(process.env.SITE_URL + '/blog/' + post.slug) %>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url=<%= encodeURIComponent(process.env.SITE_URL + '/blog/' + post.slug) %>&text=<%= encodeURIComponent(post.title) %>" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=<%= encodeURIComponent(process.env.SITE_URL + '/blog/' + post.slug) %>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Related posts (optional) -->
+        <% if(relatedPosts && relatedPosts.length) { %>
+            <div class="related-posts">
+                <h3>You May Also Like</h3>
+                <div class="related-grid">
+                    <% relatedPosts.forEach(related => { %>
+                        <a href="/blog/<%= related.slug %>" class="related-card">
+                            <% if(related.featuredImage) { %>
+                                <img src="<%= related.featuredImage %>" alt="<%= related.title %>">
+                            <% } %>
+                            <h4><%= related.title %></h4>
+                        </a>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

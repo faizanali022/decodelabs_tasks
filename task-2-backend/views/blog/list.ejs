@@ -1,0 +1,47 @@
+<%- include('../partials/head') %>
+<%- include('../partials/topbar') %>
+
+<main class="blog-listing">
+    <div class="container">
+        <div class="blog-header">
+            <h1>Our Blog</h1>
+            <div class="gold-line"></div>
+            <p class="subtitle">Home care tips, parenting advice, and safety guides</p>
+        </div>
+
+        <!-- Categories filter -->
+        <div class="blog-categories">
+            <a href="/blog" class="cat-link active">All</a>
+            <% categories.forEach(cat => { %>
+                <a href="/blog/category/<%= cat.slug %>" class="cat-link"><%= cat.name %></a>
+            <% }); %>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="posts-grid">
+            <% blogPosts.forEach(post => { %>
+                <article class="post-card">
+                    <% if(post.featuredImage) { %>
+                        <div class="post-image">
+                            <img src="<%= post.featuredImage %>" alt="<%= post.title %>" loading="lazy">
+                        </div>
+                    <% } %>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category"><%= post.categoryName %></span>
+                            <span class="post-date"><%= post.createdAt.toLocaleDateString() %></span>
+                        </div>
+                        <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+                        <p><%= post.excerpt %></p>
+                        <a href="/blog/<%= post.slug %>" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            <% }); %>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<div class="admin-form">
+    <h1>Edit Blog Post</h1>
+    <form action="/admin/blog/edit/<%= post.id %>" method="POST" enctype="multipart/form-data">
+        <label>Title</label>
+        <input type="text" name="title" value="<%= post.title %>" required>
+        
+        <label>Category</label>
+        <select name="categoryId" required>
+            <% categories.forEach(cat => { %>
+                <option value="<%= cat.id %>" <%= cat.id == post.categoryId ? 'selected' : '' %>><%= cat.name %></option>
+            <% }); %>
+        </select>
+        
+        <label>Excerpt</label>
+        <textarea name="excerpt" rows="3"><%= post.excerpt %></textarea>
+        
+        <label>Content</label>
+        <textarea name="content" rows="10" required><%= post.content %></textarea>
+        
+        <label>Change Image (leave empty to keep current)</label>
+        <input type="file" name="image">
+        
+        <label>Slug</label>
+        <input type="text" name="slug" value="<%= post.slug %>">
+        
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
