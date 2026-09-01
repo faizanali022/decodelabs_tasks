@@ -1,29 +1,44 @@
-# 🏠 Lux Eco Shades - Responsive Homepage
+# Lux Eco Shades — Responsive Homepage (Task 1)
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://your-demo-link.com)
-[![GitHub stars](https://img.shields.io/github/stars/faizanali022/decodelabs_tasks)](https://github.com/faizanali022/decodelabs_tasks/stargazers)
+## Overview
+This project is a professional, responsive homepage developed for **Task 1** of the DecodeLabs Full Stack Development Internship.
 
-## 📌 Overview
-**Lux Eco Shades** is a premium home maintenance and window solution provider based in Texas, USA.  
-This repository contains the **fully responsive homepage** built as Task 1 for DecodeLabs Full Stack Internship.
+The page is designed for the Lux Eco Shades brand and focuses on clean presentation, accessibility, and mobile-first layout practices.
 
-## 🛠️ Tech Stack
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript
-- **Design:** Mobile-First, RTL Support, WCAG Accessible
-- **Icons:** Font Awesome 6
+## Tech Stack
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Font Awesome
 
-## ✨ Features
-- ✅ 100% Responsive (Mobile / Tablet / Desktop)
-- ✅ Semantic HTML5 (header, nav, main, section, footer)
-- ✅ CSS Grid + Flexbox Layout
-- ✅ Interactive Navigation (Hamburger Menu)
-- ✅ WhatsApp Floating Button
-- ✅ Contact Form with Client-side Validation
-- ✅ Smooth Scroll & Back-to-Top Button
-- ✅ Clean, Professional UI with Brand Colors
+## Key Features
+- Fully responsive layout (mobile, tablet, desktop)
+- Semantic HTML structure
+- CSS Grid and Flexbox-based sections
+- Interactive navigation menu
+- Contact form with client-side validation
+- Smooth scrolling and UI interaction enhancements
 
-## 🚀 How to Run
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/faizanali022/decodelabs_tasks.git
-   cd decodelabs_tasks/task-1-frontend
+## Project Structure
+
+```text
+project-1-frontend/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── images/
+```
+
+## How to Run Locally
+
+```bash
+cd project-1-frontend
+# Open index.html in your browser
+```
+
+> Optional: Use a local server extension (for example, VS Code Live Server) for easier development preview.
+
+## Internship Submission Notes
+This task demonstrates frontend fundamentals: responsive design, semantic markup, reusable styling patterns, and practical JavaScript interactions suitable for a production-style landing page.
